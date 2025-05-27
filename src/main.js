@@ -1,13 +1,13 @@
 import { getImagesByQuery } from "./js/pixabay-api" ;
 import iziToast from 'izitoast';
-import { hideLoader, createButtom, showLoader, clearGallery, createGallery, handlerFormSub, refs, showBtnMore, hiddenBtnMore } from "./js/render-functions";
+import { hideLoader, showLoader, clearGallery, createGallery, handlerFormSub, refs, showBtnMore, hiddenBtnMore } from "./js/render-functions";
 
 
 let page = 1;
 let per_page = 15 ;
 let lastQuery = "";
 
-createButtom();
+// createButtom();
 hiddenBtnMore();
 
 

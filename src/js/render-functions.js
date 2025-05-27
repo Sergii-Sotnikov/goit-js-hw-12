@@ -9,15 +9,15 @@ import "simplelightbox/dist/simple-lightbox.min.css";
     showCounter: true,
 })
 
-export function createButtom(){
-  const newButton = document.createElement('button');
-  newButton.textContent = 'Load more';
-  newButton.classList.add('btn-load');
-  newButton.hidden = true;
-  document.body.append(newButton);
+// export function createButtom(){
+//   const newButton = document.createElement('button');
+//   newButton.textContent = 'Load more';
+//   newButton.classList.add('btn-load');
+//   newButton.hidden = true;
+//   document.body.append(newButton);
 
-  refs.btnLoadElem = newButton;
-}
+//   refs.btnLoadElem = newButton;
+// }
 
 
 export const refs = {
