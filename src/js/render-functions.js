@@ -27,12 +27,12 @@ export const refs = {
 };
 
 
-export function handlerFormSub(event){
-    event.preventDefault();
-    const formInput = event.target.elements["search-text"].value.trim();
-    event.target.reset();
-    return formInput;
-}
+// export function handlerFormSub(event){
+//     event.preventDefault();
+//     const formInput = event.target.elements["search-text"].value.trim();
+//     event.target.reset();
+//     return formInput;
+// }
 
 
 export function createGallery(images){
@@ -66,7 +66,10 @@ export function createGallery(images){
 
     lightbox.refresh();
 
-    const firstItem = document.querySelector('.item-gallery');
+}
+
+export function scroll(){
+const firstItem = document.querySelector('.item-gallery');
     if (firstItem) {
         const cardHeight = firstItem.getBoundingClientRect().height;
 

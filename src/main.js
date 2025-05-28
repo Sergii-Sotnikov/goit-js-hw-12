@@ -1,6 +1,6 @@
 import { getImagesByQuery } from "./js/pixabay-api" ;
 import iziToast from 'izitoast';
-import { hideLoader, showLoader, clearGallery, createGallery, handlerFormSub, refs, showBtnMore, hiddenBtnMore } from "./js/render-functions";
+import { hideLoader, showLoader, clearGallery, createGallery, refs, showBtnMore, hiddenBtnMore, scroll } from "./js/render-functions";
 
 
 let page = 1;
@@ -16,8 +16,22 @@ refs.formElem.addEventListener('submit', async (event) => {
   event.preventDefault();
   clearGallery();
   showLoader()
-  const query = handlerFormSub(event);
+  const query = event.target.elements["search-text"].value.trim();
+  if (query === ''){ 
+    hideLoader();
+  iziToast.show({
+    title: '',
+    message: 'Enter a word to search',
+    backgroundColor: '#EF4040',
+    messageColor: '#FFFFFF',
+    position: 'topRight',
+    theme: 'dark',
+  });
+  return;
+}
+  page = 1;
   lastQuery = query;
+  event.target.reset();
   try {
     const data = await getImagesByQuery(query, page, per_page)
     hideLoader();
@@ -93,6 +107,7 @@ refs.btnLoadElem.addEventListener('click', async (event) => {
     const data = await getImagesByQuery(lastQuery, page, per_page);
     hideLoader();
     createGallery(data);
+    scroll();
     if (data.total <= page * per_page){
         iziToast.show({
           title: '',
